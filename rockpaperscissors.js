@@ -1,67 +1,60 @@
 function getComputerChoice() {
-    let choice = Math.floor(Math.random() * 2);
+    let choice = Math.floor(Math.random() * 3);
     if (choice === 0) {
-        console.log(choice)
-       return ("rock");
-     } else if (choice === 1) {
-       return ("paper");
+       return "rock";
+     } if (choice === 1) {
+       return "paper";
+     } if (choice === 2) {
+       return "scissors";
+     }
+ } 
+ 
+ let playerScore = 0
+ let comptScore = 0
+ 
+ 
+ function playRound(playerSelection, computerSelection) {
+   if (playerSelection === computerSelection) {
+     return "it's a tie"
+   }
+   if( (playerSelection === 'rock' && computerSelection === 'scissors') ||
+     (playerSelection === 'scissors' && computerSelection === 'paper') ||
+     (playerSelection === 'paper' && computerSelection === 'rock')) {
+        playerScore ++
+        return "you won"
+       
+     }
+   if ((computerSelection === 'rock' && playerSelection === 'scissors') ||
+     (computerSelection === 'scissors' && playerSelection === 'paper') ||
+     (computerSelection === 'paper' && playerSelection === 'rock') ){
+        comptScore ++
+        return "computer won"
+       
      } else {
-       return ("scissors");
+       return 'error'
      }
-   }
- 
-   console.log(getComputerChoice)
-
-   let message = prompt("Do you choose rock, paper, or scissors?")
- 
-
-
-function playRound(playerSelection, computerSelection) {
-    
-      if (playerSelection === "rock") {
-        if (computerSelection === "rock") {
-          return "it's a tie";
-        } else if (computerSelection === "paper") {
-          return "you lose";
-        } else {
-          return "you win";
-        }
-      } else if (playerSelection === "paper") {
-        if (computerSelection === "paper") {
-          return "it's a tie";
-        } else if (computerSelection === "Rock") {
-          return "you win";
-        } else {
-          return "you lose";
-        }
-      } else if (playerSelection === "scissors") {
-          if (computerSelection === "scissors") {
-            return "it's a tie";
-          } else if (computerSelection === "rock") {
-            playerScore += 1;
-            return "you win";
-          } else {
-            return "you lose";
-          }
-        } else {
-          return "it's a draw";
-        }
-          playerSelection.localeCompare(computerSelection, undefined, { sensitivity: 'accent' }) === 0;
-      }
+ }
   
+ 
+ for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt('Pick a move');
+    console.log(playerSelection)
+    const computerSelection = getComputerChoice();
+    console.log(computerSelection)
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(playerScore);
+    console.log(comptScore);
+    }
+    
+    function declareWinner() {
+        if (playerScore === comptScore) {
+            return "no one won"
+        } 
+        if (playerScore > comptScore) {
+            return "you won the game"
+        } else {
+            return "you lost the game"
+        }
+    }
 
-
-
-const playerSelection = message;
-console.log(playerSelection)
-console.log(getComputerChoice())
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-function game(label) {
-    function playRound(playerSelection, computerSelection) {
-       for (let i = 0; i < 5; i++);
-     }
-    const res = playRound(playerSelection, computerSelection);
-    return res; 
-   }
+    console.log(declareWinner());
