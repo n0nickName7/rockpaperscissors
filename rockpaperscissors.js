@@ -38,13 +38,16 @@ function getButton() {
 
       document.getElementById('yourScore').innerHTML = "Your score: " + playerScore;
       document.getElementById('comptScore').innerHTML = "Computers score: " + comptScore;
-      document.getElementById('comptChoice').innerHTML = "Computer Chose: " + computerSelection;
       document.getElementById('yourChoice').innerHTML = "You Chose: " + playerSelection;
+      document.getElementById('comptChoice').innerHTML = "Computer Chose: " + computerSelection;
 
-      document.getElementById('roundWinner').innerHTML = declareWinner() + " this round";
+
+      document.getElementById('roundWinner').innerHTML = declareWinner();
       
       
       isGameOver();
+      
+      
  
      }) 
   })
@@ -52,14 +55,20 @@ function getButton() {
 
 getButton()
 
+
+document.getElementById('yourScore').innerHTML = "Your score: ";
+document.getElementById('comptScore').innerHTML = "Computers score: ";
+document.getElementById('yourChoice').innerHTML = "You Chose: ";
+document.getElementById('comptChoice').innerHTML = "Computer Chose: ";
+
+
 function displayGameover() {
-  const gameover = document.createElement('div');
-  gameover.classList.add('gameover');
-  gameover.innerHTML = 'Game Over';
-  document.body.appendChild(gameover);
+    const gameover = document.createElement('div');
+    gameover.classList.add('gameover');
+    gameover.innerHTML = 'Game Over';
+    endScreenContent.appendChild(gameover);
+    
 }
-
-
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
@@ -97,11 +106,22 @@ function declareWinner() {
 }
 
 
+const endScreen = document.querySelector('#end-screen')
+const endScreenContent = document.querySelector('#end-screen-content')
+
+
+// function displayEndScreen() {
+//   if (isGameOver === true) {
+    
+//   }
+// }
 
 function isGameOver() {
+ 
   const gameWinner = document.createElement('div')
   gameWinner.classList.add('gameWinner')
-
+ 
+ 
   if (playerScore === 5) {
     gameWinner.innerHTML = "You Won the Game";
     displayGameover();
@@ -111,22 +131,21 @@ function isGameOver() {
   } else {
     return "error";
   }
-  document.body.appendChild(gameWinner);
-  reset()
-
+  endScreenContent.appendChild(gameWinner);
+  endScreen.style.display = 'block'
+  createButton()
 }
 
-
-function reset() {
+function createButton() {
   const replayButton = document.createElement('button');
   replayButton.classList.add('replay');
   replayButton.innerHTML = "Replay?"
-  document.body.appendChild(replayButton)
-  
-}
+  endScreenContent.appendChild(replayButton)
 
-
-
+  replayButton.addEventListener('click', () => {
+    window.location.reload();
+    }
+  )}
 
 
 

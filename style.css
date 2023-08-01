@@ -1,0 +1,159 @@
+
+body {
+   color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    background-image: url('background.jpg');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .75;
+
+}
+
+.click {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+   
+}
+.btn-primary{
+    position: relative;
+
+}
+
+button {
+    background-color: transparent;
+   display: block;
+   padding: 14px 28px;
+   font-size: 22px;
+   text-align: center;
+   margin: 10px;
+   outline: none;
+   border:none;
+
+}
+
+img{
+    width: 22rem;
+    position: relative;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.text {
+    display: flex;
+   margin: auto;
+   flex-direction: column;
+   align-items: center;
+   font-size: 18px;
+   position: relative;
+   
+}
+
+#scores {
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: space-between;
+    position: relative;
+    
+}
+.choices {
+    display: flex;
+}
+
+#yourScore{
+    margin-right: 75px;
+
+}
+
+#comptScore{
+    margin-left: 75px;
+    
+}
+
+#yourChoice{
+    margin-right: 55px;
+}
+
+#comptChoice{
+    margin-left: 55px;
+}
+
+.log {
+    display: flex;
+
+}
+.center {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    
+}
+
+p {
+    display: block;
+    text-align: center;
+    padding: 12px 19px;
+    flex-direction: column;
+    color: black;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+
+.header,
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    margin: auto;
+    
+}
+
+#end-screen {
+    background-color: black;
+    position: absolute;
+    z-index: 101;
+    width: 600px;
+    height: 400px;
+    display: none;
+}
+
+#end-screen-content {
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+
+#end-screen button {
+    display: flex;
+    background-color: pink;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 110px;
+
+}
